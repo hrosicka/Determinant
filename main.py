@@ -54,7 +54,7 @@ class MainWindow(tk.Tk):
                                             text_color="#EEEEEE",
                                             fg_color="#293241",
                                             hover_color="#EE6C4D",
-                                            border_width=1,
+                                            border_width=2,
                                             border_color="#EE6C4D",
                                             font=customtkinter.CTkFont(size=16,)) #weight="bold"
 
@@ -68,19 +68,6 @@ class MainWindow(tk.Tk):
             if self.grid_column == 3:
                 self.grid_column = 0
                 self.grid_row += 1  # Move to the next row after filling the current one
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     def open_calculator(self, matrix_size):
