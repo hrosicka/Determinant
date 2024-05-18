@@ -48,7 +48,7 @@ class MainWindow(tk.Tk):
             button = customtkinter.CTkButton(master=self,
                                             text=button_text,
                                             command=lambda size=size: self.open_calculator(size),
-                                            corner_radius=5,
+                                            corner_radius=0,
                                             width=150,
                                             height=60,
                                             text_color="#EEEEEE",
@@ -56,7 +56,7 @@ class MainWindow(tk.Tk):
                                             hover_color="#EE6C4D",
                                             border_width=1,
                                             border_color="#EE6C4D",
-                                            font=customtkinter.CTkFont(size=16,)) #weight="bold"
+                                            font=customtkinter.CTkFont(size=16,))
 
             # Place the button on the current row and alternate columns (0, 1)
             button.grid(row=self.grid_row, column=self.grid_column % 3, pady=5, padx=5)  
@@ -68,19 +68,6 @@ class MainWindow(tk.Tk):
             if self.grid_column == 3:
                 self.grid_column = 0
                 self.grid_row += 1  # Move to the next row after filling the current one
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     def open_calculator(self, matrix_size):
