@@ -5,10 +5,8 @@ windll.shcore.SetProcessDpiAwareness(1)
 import tkinter as tk
 import customtkinter
 
-from matrix_calculator_22 import *
-from matrix_calculator_33 import *
-from matrix_calculator_44 import *
-from matrix_calculator_55 import *
+from matrix_calculator import *
+from matrix_calculator import *
 
 # Main window (assuming you have other functionalities here)
 class MainWindow(tk.Tk):
@@ -73,17 +71,23 @@ class MainWindow(tk.Tk):
     def open_calculator(self, matrix_size):
         # Create the appropriate calculator window based on matrix size
         if matrix_size == "2x2":
-            calculator = MatrixCalculator22(self)
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=2)
         elif matrix_size == "3x3":
-            calculator = MatrixCalculator33(self) 
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=3)
         elif matrix_size == "4x4":
-            calculator = MatrixCalculator44(self)  
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=4)
         elif matrix_size == "5x5":
-            calculator = MatrixCalculator55(self)  
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=5)
         elif matrix_size == "6x6":
-            calculator = MatrixCalculator33(self)
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=6)
         elif matrix_size == "7x7":
-            calculator = MatrixCalculator33(self) 
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=7)
+        elif matrix_size == "8x8":
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=8)
+        elif matrix_size == "9x9":
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=9)
+        elif matrix_size == "10x10":
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=10)
         else:
             print("Invalid matrix size selected.")  # Handle unexpected size
             return

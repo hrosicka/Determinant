@@ -15,7 +15,7 @@ def create_calculation_button(window, text, command):
     """
 
     # Create a CTkButton object with the following parameters:
-    button = customtkinter.CTkButton(master = window,
+    button = customtkinter.CTkButton(master=window,
                         text=text,
                         command=command,
                         corner_radius=0,
