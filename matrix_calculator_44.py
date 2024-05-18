@@ -1,6 +1,8 @@
 import tkinter as tk
 import numpy as np
+from message_box import *
 from determinant import Matrix
+from custom_button import *
 
 
 class MatrixCalculator44:
@@ -13,24 +15,25 @@ class MatrixCalculator44:
 
         # Create the matrix calculator window as a Toplevel
         self.calculator_window = tk.Toplevel(master)
-        self.calculator_window.title("Matrix Determinant Calculator")
+        self.calculator_window.title("4x4 Matrix")
+        self.calculator_window.config(bg="#293241")
 
         # Frame for matrix input
-        self.matrix_frame = tk.Frame(self.calculator_window)
+        self.matrix_frame = tk.Frame(self.calculator_window, bg="#293241")
         self.matrix_frame.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
         # Labels and entry fields for matrix elements
         self.matrix_elements = {}
         for row in range(4):
             for col in range(4):
-                entry = tk.Entry(self.matrix_frame, justify=tk.RIGHT)
-                entry.grid(row=row, column=col + 1, padx=2, pady=2)
+                entry = customtkinter.CTkEntry(self.matrix_frame, width=100, justify=tk.RIGHT)
+                entry.grid(row=row, column=col + 1, padx=3, pady=3)
                 self.matrix_elements[f"{row},{col}"] = entry
 
         # Button to trigger calculation
-        self.calculate_button = tk.Button(self.calculator_window,
-                                          text="Calculate Determinant",
-                                          command=self.calculate_determinant44)
+        self.calculate_button = create_calculation_button(self.calculator_window,
+                                                          text="Calculate\nDeterminant",
+                                                          command=self.calculate_determinant44)
         self.calculate_button.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
 
         # Label to display determinant
@@ -48,7 +51,9 @@ class MatrixCalculator44:
                     element = float(element_str)
                     row_data.append(element)
                 except ValueError:
-                    self.determinant_label.config(text="Invalid matrix data. Enter numbers only.")
+                    output_text = f"Invalid number at row {row+1}, column {col+1}. Enter a number only."
+                    self.determinant_label.config(text=output_text)
+                    show_error_message(message=output_text)
                     return
 
             matrix_data.append(row_data)

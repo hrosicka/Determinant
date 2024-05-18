@@ -48,15 +48,15 @@ class MainWindow(tk.Tk):
             button = customtkinter.CTkButton(master=self,
                                             text=button_text,
                                             command=lambda size=size: self.open_calculator(size),
-                                            corner_radius=5,
+                                            corner_radius=0,
                                             width=150,
                                             height=60,
                                             text_color="#EEEEEE",
                                             fg_color="#293241",
                                             hover_color="#EE6C4D",
-                                            border_width=2,
+                                            border_width=1,
                                             border_color="#EE6C4D",
-                                            font=customtkinter.CTkFont(size=16,)) #weight="bold"
+                                            font=customtkinter.CTkFont(size=16,))
 
             # Place the button on the current row and alternate columns (0, 1)
             button.grid(row=self.grid_row, column=self.grid_column % 3, pady=5, padx=5)  
