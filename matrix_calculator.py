@@ -23,12 +23,12 @@ class MatrixCalculator:
         self.matrix_frame = tk.Frame(self.calculator_window, bg="#293241")
         self.matrix_frame.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
-        # Labels and entry fields for matrix elements
+        # Entry fields for matrix elements
         self.matrix_elements = {}
         for row in range(dim):
             for col in range(dim):
                 entry = customtkinter.CTkEntry(self.matrix_frame, width=100, justify=tk.RIGHT)
-                entry.grid(row=row, column=col + 1, padx=3, pady=3)
+                entry.grid(row=row, column=col, padx=3, pady=3)
                 self.matrix_elements[f"{row},{col}"] = entry
 
         # Button to trigger calculation
