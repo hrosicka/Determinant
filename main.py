@@ -1,4 +1,4 @@
-# Improves DPI awareness for high-resolution displays
+# Improves DPI awareness for high-resolution displays (enables sharper visuals)
 from ctypes import windll
 windll.shcore.SetProcessDpiAwareness(1)
 
@@ -6,29 +6,29 @@ import tkinter as tk
 import customtkinter
 
 from matrix_calculator import *
-from matrix_calculator import *
 
-# Main window (assuming you have other functionalities here)
+# Main window class for the determinant calculator application
 class MainWindow(tk.Tk):
     def __init__(self):
         super().__init__()
+
+        # Set window title
         self.title("Determinant Calculator")
         
-        # Adjust size
+        # Adjust window size and set minimum/maximum limits
         self.geometry("725x540")
-        
-        # set minimum window size value
         self.minsize(725, 540)
-        
-        # set maximum window size value
         self.maxsize(725, 540)
+
+        # Set background color
         self.config(bg="#293241")
 
+        # Load application image (assuming an image file named "DetImage.png" exists)
         self.app_image = tk.PhotoImage(file="DetImage.png")
         self.app_image_label = tk.Label(self, image=self.app_image)                 
         self.app_image_label.grid(row=0, column=0, padx=10, pady=30)
 
-
+        # Create title label with custom styling
         self.title_label = customtkinter.CTkLabel(self,
                                                 text_color="#EE6C4D",
                                                 text="MATRIX DETERMINANT\nCALCULATOR",
@@ -38,11 +38,13 @@ class MainWindow(tk.Tk):
         # Create buttons for different matrix sizes
         self.calc_buttons = {}
         matrix_sizes = ["2x2", "3x3", "4x4", "5x5", "6x6", "7x7", "8x8", "9x9", "10x10"]
-        self.grid_row = 2  # Keep track of the current row for grid placement
-        self.grid_column = 0  # Keep track of the current column for grid placement
+        self.grid_row = 2  # Track current row for grid placement
+        self.grid_column = 0  # Track current column for grid placement
 
         for size in matrix_sizes:
             button_text = f"{size} Matrix"
+
+            # Create a button with custom styling and functionality for opening the calculator for the chosen size
             button = customtkinter.CTkButton(master=self,
                                             text=button_text,
                                             command=lambda size=size: self.open_calculator(size),
@@ -56,20 +58,25 @@ class MainWindow(tk.Tk):
                                             border_color="#EE6C4D",
                                             font=customtkinter.CTkFont(size=16,))
 
-            # Place the button on the current row and alternate columns (0, 1)
+           # Place the button on the grid and alternate columns
             button.grid(row=self.grid_row, column=self.grid_column % 3, pady=5, padx=5)  
-
             self.calc_buttons[size] = button
-            self.grid_column += 1  # Increment column for next button
+            self.grid_column += 1  # Move to the next column for the next button
 
-            # Check if a row is filled (2 buttons) and move to the next row
+            # Check if a row is filled (2 buttons) and move to the next row if needed
             if self.grid_column == 3:
                 self.grid_column = 0
-                self.grid_row += 1  # Move to the next row after filling the current one
-
+                self.grid_row += 1
 
     def open_calculator(self, matrix_size):
-        # Create the appropriate calculator window based on matrix size
+        """
+        Opens the appropriate calculator window based on the selected matrix size.
+
+        Args:
+            matrix_size (str): The size of the matrix (e.g., "2x2", "3x3").
+        """
+
+        # Create a MatrixCalculator object for the chosen size
         if matrix_size == "2x2":
             calculator = MatrixCalculator(self, size_desc=matrix_size, dim=2)
         elif matrix_size == "3x3":
@@ -94,7 +101,7 @@ class MainWindow(tk.Tk):
 
         calculator.calculator_window.mainloop()  # Run the calculator's event loop
 
-# Example usage
+# Run the main application loop if this script is executed directly
 if __name__ == "__main__":
     main_window = MainWindow()
     main_window.mainloop()
