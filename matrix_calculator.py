@@ -27,8 +27,14 @@ class MatrixCalculator:
         self.matrix_elements = {}
         for row in range(dim):
             for col in range(dim):
-                entry = customtkinter.CTkEntry(self.matrix_frame, width=100, justify=tk.RIGHT)
+                entry = customtkinter.CTkEntry(self.matrix_frame,
+                                               width=100,
+                                               text_color="#EEEEEE",
+                                               fg_color="#293241",
+                                               border_width=1,
+                                               justify=tk.RIGHT)
                 entry.grid(row=row, column=col, padx=3, pady=3)
+                entry.bind("<FocusOut>", lambda event, entry=entry: self.validate_entry(entry))
                 self.matrix_elements[f"{row},{col}"] = entry
 
         # Button to trigger calculation
@@ -43,6 +49,16 @@ class MatrixCalculator:
                                           bg="#293241",
                                           fg="white")
         self.determinant_label.grid(row=4, column=0, columnspan=2, padx=5, pady=15)
+
+    def validate_entry(self, entry):
+        element_str = entry.get()
+        try:
+            float(element_str)
+            # Valid number, reset background color
+            entry.configure(fg_color="#293241")
+        except ValueError:
+            # Invalid number, highlight the entry
+            entry.configure(fg_color="#EE6C4D")
 
     def calculate_determinant(self, dim):
         # Get matrix elements from entry fields and convert to list
