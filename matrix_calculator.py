@@ -37,11 +37,19 @@ class MatrixCalculator:
                 entry.bind("<FocusOut>", lambda event, entry=entry: self.validate_entry(entry))
                 self.matrix_elements[f"{row},{col}"] = entry
 
+
+        # Button to fill empty cells with zero
+        self.fill_zero_button = create_calculation_button(self.calculator_window,
+                                                     text="Fill Empty Cells\n With Zero",
+                                                     command=lambda: self.fill_with_zeros(dim))
+        self.fill_zero_button.grid(row=3, column=0, columnspan=1, padx=5, pady=5)
+
+
         # Button to trigger calculation
         self.calculate_button = create_calculation_button(self.calculator_window,
                                                           text="Calculate\nDeterminant",
                                                           command=lambda: self.calculate_determinant(dim))
-        self.calculate_button.grid(row=3, column=0, columnspan=2, padx=5, pady=15)
+        self.calculate_button.grid(row=3, column=1, columnspan=1, padx=5, pady=15)
 
         # Label to display determinant
         self.determinant_label = tk.Label(self.calculator_window, 
@@ -59,6 +67,14 @@ class MatrixCalculator:
         except ValueError:
             # Invalid number, highlight the entry
             entry.configure(fg_color="#EE6C4D")
+
+    def fill_with_zeros(self, dim):
+        for row in range(dim):
+            for col in range(dim):
+                element_str = self.matrix_elements[f"{row},{col}"].get()
+                if not element_str:
+                    self.matrix_elements[f"{row},{col}"].insert(0, "0")
+                    self.matrix_elements[f"{row},{col}"].configure(fg_color="#293241")
 
     def calculate_determinant(self, dim):
         # Get matrix elements from entry fields and convert to list
