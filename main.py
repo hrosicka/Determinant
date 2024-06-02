@@ -4,6 +4,7 @@ windll.shcore.SetProcessDpiAwareness(1)
 
 import tkinter as tk
 import customtkinter
+from PIL import Image, ImageTk
 
 from matrix_calculator import *
 
@@ -19,6 +20,10 @@ class MainWindow(tk.Tk):
         self.geometry("725x540")
         self.minsize(725, 540)
         self.maxsize(725, 540)
+
+        ico = Image.open(os.path.join(dirname, 'icon.jpg'))
+        photo = ImageTk.PhotoImage(ico)
+        self.wm_iconphoto(False, photo)
 
         # Set background color
         self.config(bg="#293241")

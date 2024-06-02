@@ -4,6 +4,7 @@ import customtkinter
 from message_box import *
 from determinant import Matrix
 from custom_button import *
+from PIL import Image, ImageTk
 
 
 class MatrixCalculator:
@@ -18,6 +19,10 @@ class MatrixCalculator:
         self.calculator_window = tk.Toplevel(master)
         self.calculator_window.title(size_desc)
         self.calculator_window.config(bg="#293241")
+
+        ico = Image.open(os.path.join(dirname, 'icon.jpg'))
+        photo = ImageTk.PhotoImage(ico)
+        self.calculator_window.wm_iconphoto(False, photo)
 
         # Frame for matrix input
         self.matrix_frame = tk.Frame(self.calculator_window, bg="#293241")
