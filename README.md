@@ -16,5 +16,12 @@ This application is designed to help you calculate the determinant of matrices. 
    ![](https://github.com/hrosicka/Determinant/blob/master/Doc/MainWindow2.png)
    
 4. **Enter the matrix values.** Once you select the matrix dimension, a window with a grid of boxes will appear. Enter the values for the individual elements of the matrix into these boxes.
-5. **Click the "Calculate" button.** After entering all the values, press the "Calculate" button at the bottom of the window.
-6. **View the result.** The application will display the determinant of the entered matrix in the field below the grid of boxes.
+
+   ![](https://github.com/hrosicka/Determinant/blob/master/Doc/ErrorMatrix22.png)
+
+   ![](https://github.com/hrosicka/Determinant/blob/master/Doc/ErrorMessageBox.png)
+   
+6. **Click the "Calculate" button.** After entering all the values, press the "Calculate" button at the bottom of the window.
+7. **View the result.** The application will display the determinant of the entered matrix in the field below the grid of boxes.
+
+   ![](https://github.com/hrosicka/Determinant/blob/master/Doc/Determinant22.png)
