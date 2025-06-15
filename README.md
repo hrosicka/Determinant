@@ -1,4 +1,12 @@
 # Unlock the Power of Matrices with Our Determinant Calculator!
+
+![License](https://img.shields.io/github/license/hrosicka/Determinant)
+![Repo size](https://img.shields.io/github/repo-size/hrosicka/Determinant)
+![Language](https://img.shields.io/github/languages/top/hrosicka/Determinant)
+![GitHub issues](https://img.shields.io/github/issues/hrosicka/Determinant)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/hrosicka/Determinant)
+![GitHub last commit](https://img.shields.io/github/last-commit/hrosicka/Determinant)
+
 **Struggling to see the matrix through the muddle of math? Welcome to Determinant Calculator!**
 
 - **Solve real-world problems with ease:** Whether you're an engineer, student, or just curious about math, our Determinant Calculator is your key to unlocking the secrets of matrices and their applications in various fields.
