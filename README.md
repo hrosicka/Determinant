@@ -38,3 +38,10 @@ This application is designed to help you calculate the determinant of matrices. 
 7. **View the result.** The application will display the determinant of the entered matrix in the field below the grid of boxes.
 
    ![](https://github.com/hrosicka/Determinant/blob/master/Doc/Determinant22.png)
+
+## Author
+Lovingly crafted by [Hanka Robovska](https://github.com/hrosicka)
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details. Free to use, modify, and distribute as needed.
+
