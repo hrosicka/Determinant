@@ -80,31 +80,21 @@ class MainWindow(tk.Tk):
         Args:
             matrix_size (str): The size of the matrix (e.g., "2x2", "3x3").
         """
-
-        # Create a MatrixCalculator object for the chosen size
-        if matrix_size == "2x2":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=2)
-        elif matrix_size == "3x3":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=3)
-        elif matrix_size == "4x4":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=4)
-        elif matrix_size == "5x5":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=5)
-        elif matrix_size == "6x6":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=6)
-        elif matrix_size == "7x7":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=7)
-        elif matrix_size == "8x8":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=8)
-        elif matrix_size == "9x9":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=9)
-        elif matrix_size == "10x10":
-            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=10)
-        else:
-            print("Invalid matrix size selected.")  # Handle unexpected size
-            return
-
-        calculator.calculator_window.mainloop()  # Run the calculator's event loop
+        try:
+            # Extract dimension from string like "2x2"
+            dim = int(matrix_size.split("x")[0])
+            
+            # Validate dimension (checks if it's between 2 and 10 inclusive)
+            if not (2 <= dim <= 10):
+                show_error_message("Matrix size must be between 2x2 and 10x10")
+                return
+            
+            # Create calculator for any valid size
+            calculator = MatrixCalculator(self, size_desc=matrix_size, dim=dim)
+            calculator.calculator_window.mainloop()
+        
+        except (ValueError, IndexError):
+            show_error_message("Invalid matrix size format")
 
 # Run the main application loop if this script is executed directly
 if __name__ == "__main__":
