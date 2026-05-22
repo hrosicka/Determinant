@@ -64,13 +64,24 @@ class MatrixCalculator:
         self.determinant_label.grid(row=4, column=0, columnspan=2, padx=5, pady=15)
 
     def validate_entry(self, entry):
-        element_str = entry.get()
+        """
+        Validates the entry to ensure it's a valid number.
+        Updates the visual feedback based on validity.
+        """
+        element_str = entry.get().strip()
+        
+        # Allow empty entries (will be filled with 0 or checked during calculation)
+        if not element_str:
+            entry.configure(fg_color="#293241")
+            return
+        
         try:
+            # Try to convert to float to validate
             float(element_str)
             # Valid number, reset background color
             entry.configure(fg_color="#293241")
         except ValueError:
-            # Invalid number, highlight the entry
+            # Invalid number, highlight the entry in red
             entry.configure(fg_color="#EE6C4D")
 
     def fill_with_zeros(self, dim):
