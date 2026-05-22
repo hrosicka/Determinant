@@ -117,5 +117,15 @@ class MatrixCalculator:
         matrix_object = Matrix(matrix)
         determinant = matrix_object.determinant()
 
-        # Update determinant label
-        self.determinant_label.config(text=f"Determinant\n{determinant}")
+        try:
+            # Round to reasonable number of decimal places
+            if abs(determinant) < 1e-10:
+                result_text = "Determinant\n0"
+            elif 1e-6 < abs(determinant) < 1e6:
+                result_text = f"Determinant\n{determinant:.6g}"
+            else:
+                result_text = f"Determinant\n{determinant:.4e}"
+            
+            self.determinant_label.config(text=result_text)
+        except Exception as e:
+            show_error_message(f"Error during calculation: {str(e)}")
