@@ -28,10 +28,9 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest Tests/test_determinant.py -v --tb=short
+        python -m pytest Tests/test_determinant.py -v --tb=short
 
     - name: Generate coverage report
       run: |
-        pip install coverage
-        coverage run -m pytest Tests/test_determinant.py
-        coverage report -m
+        python -m coverage run -m pytest Tests/test_determinant.py
+        python -m coverage report -m
