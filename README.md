@@ -6,6 +6,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/hrosicka/Determinant)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/hrosicka/Determinant)
 ![GitHub last commit](https://img.shields.io/github/last-commit/hrosicka/Determinant)
+![Tests](https://github.com/hrosicka/Determinant/actions/workflows/tests.yml/badge.svg)
 
 **Struggling to see the matrix through the muddle of math? Welcome to Determinant Calculator!**
 
