@@ -1,7 +1,7 @@
 # Unlock the Power of Matrices with Our Determinant Calculator!
 
 <p align="center">
-  <a href="https://github.com/hrosicka/Determinant/blob/main/LICENSE">
+  <a href="https://github.com/hrosicka/Determinant/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/hrosicka/Determinant" alt="License">
   </a>
   <a href="https://github.com/hrosicka/Determinant/issues">
@@ -13,7 +13,7 @@
   <a href="https://github.com/hrosicka/Determinant">
     <img src="https://img.shields.io/github/repo-size/hrosicka/Determinant" alt="Repo size">
   </a>
-  <a href="https://github.com/hrosicka/Determinant/commits/main">
+  <a href="https://github.com/hrosicka/Determinant/commits/master">
     <img src="https://img.shields.io/github/last-commit/hrosicka/Determinant" alt="GitHub last commit">
   </a>
   <a href="https://github.com/hrosicka/Determinant">
