@@ -1,12 +1,28 @@
 # Unlock the Power of Matrices with Our Determinant Calculator!
 
-![License](https://img.shields.io/github/license/hrosicka/Determinant)
-![Repo size](https://img.shields.io/github/repo-size/hrosicka/Determinant)
-![Language](https://img.shields.io/github/languages/top/hrosicka/Determinant)
-![GitHub issues](https://img.shields.io/github/issues/hrosicka/Determinant)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/hrosicka/Determinant)
-![GitHub last commit](https://img.shields.io/github/last-commit/hrosicka/Determinant)
-![Tests](https://github.com/hrosicka/Determinant/actions/workflows/tests.yml/badge.svg)
+<p align="center">
+  <a href="https://github.com/hrosicka/Determinant/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/hrosicka/Determinant" alt="License">
+  </a>
+  <a href="https://github.com/hrosicka/Determinant/issues">
+    <img src="https://img.shields.io/github/issues/hrosicka/Determinant" alt="GitHub issues">
+  </a>
+  <a href="https://github.com/hrosicka/Determinant/pulls">
+    <img src="https://img.shields.io/github/issues-pr/hrosicka/Determinant" alt="GitHub pull requests">
+  </a>
+  <a href="https://github.com/hrosicka/Determinant">
+    <img src="https://img.shields.io/github/repo-size/hrosicka/Determinant" alt="Repo size">
+  </a>
+  <a href="https://github.com/hrosicka/Determinant/commits/main">
+    <img src="https://img.shields.io/github/last-commit/hrosicka/Determinant" alt="GitHub last commit">
+  </a>
+  <a href="https://github.com/hrosicka/Determinant">
+    <img src="https://img.shields.io/github/languages/top/hrosicka/Determinant" alt="Language">
+  </a>
+  <a href="https://github.com/hrosicka/Determinant/actions/workflows/tests.yml">
+    <img src="https://github.com/hrosicka/Determinant/actions/workflows/tests.yml/badge.svg" alt="Tests">
+  </a>
+</p>
 
 **Struggling to see the matrix through the muddle of math? Welcome to Determinant Calculator!**
 
