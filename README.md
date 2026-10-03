@@ -2,25 +2,25 @@
 
 <p align="center">
   <a href="https://github.com/hrosicka/Determinant/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/hrosicka/Determinant" alt="License">
+    <img src="https://img.shields.io/github/license/hrosicka/Determinant?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License">
   </a>
   <a href="https://github.com/hrosicka/Determinant/issues">
-    <img src="https://img.shields.io/github/issues/hrosicka/Determinant" alt="GitHub issues">
+    <img src="https://img.shields.io/github/issues/hrosicka/Determinant?style=for-the-badge&logo=github&logoColor=white" alt="GitHub issues">
   </a>
   <a href="https://github.com/hrosicka/Determinant/pulls">
-    <img src="https://img.shields.io/github/issues-pr/hrosicka/Determinant" alt="GitHub pull requests">
+    <img src="https://img.shields.io/github/issues-pr/hrosicka/Determinant?style=for-the-badge&logo=git&logoColor=white" alt="GitHub pull requests">
   </a>
   <a href="https://github.com/hrosicka/Determinant">
-    <img src="https://img.shields.io/github/repo-size/hrosicka/Determinant" alt="Repo size">
+    <img src="https://img.shields.io/github/repo-size/hrosicka/Determinant?style=for-the-badge" alt="Repo size">
   </a>
   <a href="https://github.com/hrosicka/Determinant/commits/master">
-    <img src="https://img.shields.io/github/last-commit/hrosicka/Determinant" alt="GitHub last commit">
+    <img src="https://img.shields.io/github/last-commit/hrosicka/Determinant?style=for-the-badge&logo=git" alt="GitHub last commit">
   </a>
   <a href="https://github.com/hrosicka/Determinant">
-    <img src="https://img.shields.io/github/languages/top/hrosicka/Determinant" alt="Language">
+    <img src="https://img.shields.io/github/languages/top/hrosicka/Determinant?style=for-the-badge" alt="Language">
   </a>
   <a href="https://github.com/hrosicka/Determinant/actions/workflows/tests.yml">
-    <img src="https://github.com/hrosicka/Determinant/actions/workflows/tests.yml/badge.svg" alt="Tests">
+    <img src="https://img.shields.io/github/actions/workflow/status/hrosicka/Determinant/tests.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=white&label=tests" alt="Tests">
   </a>
 </p>
 
