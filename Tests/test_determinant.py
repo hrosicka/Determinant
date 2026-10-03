@@ -1,16 +1,16 @@
 # Tests/test_determinant.py
-import unittest
-import sys
-import numpy as np
 import os
+import sys
+import unittest
+
+import numpy as np
 
 # Setting path to parent directory to allow direct execution
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from determinant import Matrix
 
 
 class TestMatrix(unittest.TestCase):
-
     def test_init_square_matrix(self):
         """Test that the constructor works for a valid square matrix."""
         matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])

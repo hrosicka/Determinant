@@ -1,9 +1,10 @@
 import tkinter as tk
-import numpy as np
+
 import customtkinter
-from message_box import *
-from determinant import Matrix
+import numpy as np
 from custom_button import *
+from determinant import Matrix
+from message_box import *
 from PIL import Image, ImageTk
 
 
@@ -20,7 +21,7 @@ class MatrixCalculator:
         self.calculator_window.title(size_desc)
         self.calculator_window.config(bg="#293241")
 
-        ico = Image.open(os.path.join(dirname, 'icon.jpg'))
+        ico = Image.open(os.path.join(dirname, "icon.jpg"))
         photo = ImageTk.PhotoImage(ico)
         self.calculator_window.wm_iconphoto(False, photo)
 
@@ -32,35 +33,40 @@ class MatrixCalculator:
         self.matrix_elements = {}
         for row in range(dim):
             for col in range(dim):
-                entry = customtkinter.CTkEntry(self.matrix_frame,
-                                               width=100,
-                                               text_color="#EEEEEE",
-                                               fg_color="#293241",
-                                               border_width=1,
-                                               justify=tk.RIGHT)
+                entry = customtkinter.CTkEntry(
+                    self.matrix_frame,
+                    width=100,
+                    text_color="#EEEEEE",
+                    fg_color="#293241",
+                    border_width=1,
+                    justify=tk.RIGHT,
+                )
                 entry.grid(row=row, column=col, padx=3, pady=3)
-                entry.bind("<FocusOut>", lambda event, entry=entry: self.validate_entry(entry))
+                entry.bind(
+                    "<FocusOut>", lambda event, entry=entry: self.validate_entry(entry)
+                )
                 self.matrix_elements[f"{row},{col}"] = entry
 
-
         # Button to fill empty cells with zero
-        self.fill_zero_button = create_calculation_button(self.calculator_window,
-                                                     text="Fill Empty Cells\n With Zero",
-                                                     command=lambda: self.fill_with_zeros(dim))
+        self.fill_zero_button = create_calculation_button(
+            self.calculator_window,
+            text="Fill Empty Cells\n With Zero",
+            command=lambda: self.fill_with_zeros(dim),
+        )
         self.fill_zero_button.grid(row=3, column=0, columnspan=1, padx=5, pady=5)
 
-
         # Button to trigger calculation
-        self.calculate_button = create_calculation_button(self.calculator_window,
-                                                          text="Calculate\nDeterminant",
-                                                          command=lambda: self.calculate_determinant(dim))
+        self.calculate_button = create_calculation_button(
+            self.calculator_window,
+            text="Calculate\nDeterminant",
+            command=lambda: self.calculate_determinant(dim),
+        )
         self.calculate_button.grid(row=3, column=1, columnspan=1, padx=5, pady=15)
 
         # Label to display determinant
-        self.determinant_label = tk.Label(self.calculator_window, 
-                                          text="Determinant\n",
-                                          bg="#293241",
-                                          fg="white")
+        self.determinant_label = tk.Label(
+            self.calculator_window, text="Determinant\n", bg="#293241", fg="white"
+        )
         self.determinant_label.grid(row=4, column=0, columnspan=2, padx=5, pady=15)
 
     def validate_entry(self, entry):
@@ -69,12 +75,12 @@ class MatrixCalculator:
         Updates the visual feedback based on validity.
         """
         element_str = entry.get().strip()
-        
+
         # Allow empty entries (will be filled with 0 or checked during calculation)
         if not element_str:
             entry.configure(fg_color="#293241")
             return
-        
+
         try:
             # Try to convert to float to validate
             float(element_str)
@@ -103,7 +109,7 @@ class MatrixCalculator:
                     element = float(element_str)
                     row_data.append(element)
                 except ValueError:
-                    output_text = f"Invalid number at row {row+1}, column {col+1}.\nEnter a number only."
+                    output_text = f"Invalid number at row {row + 1}, column {col + 1}.\nEnter a number only."
                     self.determinant_label.config(text=output_text)
                     show_error_message(message=output_text)
                     return
@@ -125,7 +131,7 @@ class MatrixCalculator:
                 result_text = f"Determinant\n{determinant:.6g}"
             else:
                 result_text = f"Determinant\n{determinant:.4e}"
-            
+
             self.determinant_label.config(text=result_text)
         except Exception as e:
             show_error_message(f"Error during calculation: {str(e)}")
