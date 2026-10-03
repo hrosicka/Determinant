@@ -1,12 +1,19 @@
 # Improves DPI awareness for high-resolution displays (enables sharper visuals)
 from ctypes import windll
-windll.shcore.SetProcessDpiAwareness(1)
+
+try:
+    from ctypes import windll
+
+    windll.shcore.SetProcessDpiAwareness(1)
+except (ImportError, AttributeError):
+    pass  # Linux/macOS
 
 import tkinter as tk
+
 import customtkinter
+from matrix_calculator import *
 from PIL import Image, ImageTk
 
-from matrix_calculator import *
 
 # Main window class for the determinant calculator application
 class MainWindow(tk.Tk):
@@ -15,13 +22,13 @@ class MainWindow(tk.Tk):
 
         # Set window title
         self.title("Determinant Calculator")
-        
+
         # Adjust window size and set minimum/maximum limits
         self.geometry("725x540")
         self.minsize(725, 540)
         self.maxsize(725, 540)
 
-        ico = Image.open(os.path.join(dirname, 'icon.jpg'))
+        ico = Image.open(os.path.join(dirname, "icon.jpg"))
         photo = ImageTk.PhotoImage(ico)
         self.wm_iconphoto(False, photo)
 
@@ -29,15 +36,18 @@ class MainWindow(tk.Tk):
         self.config(bg="#293241")
 
         # Load application image (assuming an image file named "DetImage.png" exists)
-        self.app_image = tk.PhotoImage(file="DetImage.png")
-        self.app_image_label = tk.Label(self, image=self.app_image)                 
+        image_path = os.path.join(dirname, "DetImage.png")
+        self.app_image = tk.PhotoImage(file=image_path)
+        self.app_image_label = tk.Label(self, image=self.app_image)
         self.app_image_label.grid(row=0, column=0, padx=10, pady=30)
 
         # Create title label with custom styling
-        self.title_label = customtkinter.CTkLabel(self,
-                                                text_color="#EE6C4D",
-                                                text="MATRIX DETERMINANT\nCALCULATOR",
-                                                font=customtkinter.CTkFont(size=18))
+        self.title_label = customtkinter.CTkLabel(
+            self,
+            text_color="#EE6C4D",
+            text="MATRIX DETERMINANT\nCALCULATOR",
+            font=customtkinter.CTkFont(size=18),
+        )
         self.title_label.grid(row=0, column=1, padx=10, pady=10, columnspan=2)
 
         # Create buttons for different matrix sizes
@@ -50,21 +60,25 @@ class MainWindow(tk.Tk):
             button_text = f"{size} Matrix"
 
             # Create a button with custom styling and functionality for opening the calculator for the chosen size
-            button = customtkinter.CTkButton(master=self,
-                                            text=button_text,
-                                            command=lambda size=size: self.open_calculator(size),
-                                            corner_radius=0,
-                                            width=150,
-                                            height=60,
-                                            text_color="#EEEEEE",
-                                            fg_color="#293241",
-                                            hover_color="#EE6C4D",
-                                            border_width=1,
-                                            border_color="#EE6C4D",
-                                            font=customtkinter.CTkFont(size=16,))
+            button = customtkinter.CTkButton(
+                master=self,
+                text=button_text,
+                command=lambda size=size: self.open_calculator(size),
+                corner_radius=0,
+                width=150,
+                height=60,
+                text_color="#EEEEEE",
+                fg_color="#293241",
+                hover_color="#EE6C4D",
+                border_width=1,
+                border_color="#EE6C4D",
+                font=customtkinter.CTkFont(
+                    size=16,
+                ),
+            )
 
-           # Place the button on the grid and alternate columns
-            button.grid(row=self.grid_row, column=self.grid_column % 3, pady=5, padx=5)  
+            # Place the button on the grid and alternate columns
+            button.grid(row=self.grid_row, column=self.grid_column % 3, pady=5, padx=5)
             self.calc_buttons[size] = button
             self.grid_column += 1  # Move to the next column for the next button
 
@@ -83,18 +97,19 @@ class MainWindow(tk.Tk):
         try:
             # Extract dimension from string like "2x2"
             dim = int(matrix_size.split("x")[0])
-            
+
             # Validate dimension (checks if it's between 2 and 10 inclusive)
             if not (2 <= dim <= 10):
                 show_error_message("Matrix size must be between 2x2 and 10x10")
                 return
-            
+
             # Create calculator for any valid size
             calculator = MatrixCalculator(self, size_desc=matrix_size, dim=dim)
             calculator.calculator_window.mainloop()
-        
+
         except (ValueError, IndexError):
             show_error_message("Invalid matrix size format")
+
 
 # Run the main application loop if this script is executed directly
 if __name__ == "__main__":

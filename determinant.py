@@ -1,9 +1,11 @@
 import numpy as np
 
+
 class Matrix:
     """
     This class represents a matrix and provides methods for calculating its determinant.
     """
+
     def __init__(self, matrix):
         """
         Initializes the matrix object.
@@ -24,7 +26,7 @@ class Matrix:
 
     def determinant(self):
         """
-        Calculates the determinant of the matrix using NumPy's highly optimized 
+        Calculates the determinant of the matrix using NumPy's highly optimized
         algorithm (LAPACK-based LU decomposition). Time complexity: O(n^3).
 
         Returns:
@@ -40,7 +42,7 @@ class Matrix:
         """
         Manual implementation using cofactor expansion (for educational purposes).
         Only suitable for small matrices (up to 8x8), otherwise it will cause heavy performance lag.
-        
+
         Returns:
         Determinant of the matrix (float).
         """
@@ -50,13 +52,18 @@ class Matrix:
         if n == 1:
             return self.matrix[0, 0]
         elif n == 2:
-            return self.matrix[0, 0] * self.matrix[1, 1] - self.matrix[0, 1] * self.matrix[1, 0]
+            return (
+                self.matrix[0, 0] * self.matrix[1, 1]
+                - self.matrix[0, 1] * self.matrix[1, 0]
+            )
 
         # Recursive case for matrices larger than 2x2
         else:
             # Safety guard to prevent the application from freezing on 10x10 or larger matrices
             if n > 8:
-                raise ValueError("Matrix is too large for manual Laplace expansion. Use determinant() instead.")
+                raise ValueError(
+                    "Matrix is too large for manual Laplace expansion. Use determinant() instead."
+                )
 
             determinant = 0.0
             for i in range(n):
@@ -67,6 +74,6 @@ class Matrix:
                 minor_determinant = Matrix(sub_matrix).determinant_manual()
 
                 # Apply sign and add the cofactor to the total determinant
-                determinant += (-1)**i * self.matrix[0, i] * minor_determinant
+                determinant += (-1) ** i * self.matrix[0, i] * minor_determinant
 
             return determinant
