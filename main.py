@@ -1,7 +1,12 @@
 # Improves DPI awareness for high-resolution displays (enables sharper visuals)
 from ctypes import windll
 
-windll.shcore.SetProcessDpiAwareness(1)
+try:
+    from ctypes import windll
+
+    windll.shcore.SetProcessDpiAwareness(1)
+except (ImportError, AttributeError):
+    pass  # Linux/macOS
 
 import tkinter as tk
 
